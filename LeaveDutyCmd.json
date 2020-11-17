@@ -1,0 +1,10 @@
+{
+    "Author": "marimelon",
+    "Name": "LeaveDutyCmd",
+    "Description": "Provides an immediate leave duty command. /leaved",
+    "InternalName": "LeaveDutyCmd",
+    "AssemblyVersion": "1.0.0.0",
+    "RepoUrl": "https://github.com/marimelon/LeaveDutyCmdPlugin",
+    "ApplicableVersion": "any",
+    "DalamudApiLevel": 1
+}
