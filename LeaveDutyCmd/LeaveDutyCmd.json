@@ -1,0 +1,7 @@
+{
+  "Author": "marimelon",
+  "Name": "LeaveDutyCmd",
+  "Description": "Add immediately leave duty Command.(Do not display confirmation window)",
+  "RepoUrl": "https://github.com/marimelon/LeaveDutyCmdPlugin",
+  "DalamudApiLevel": 4
+}
