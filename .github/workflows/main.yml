@@ -12,7 +12,7 @@ on:
 env:
   SOLUTION_NAME: LeaveDutyCmdPlugin
   INTERNAL_NAME: LeaveDutyCmdPlugin
-  RELEASE_DIR: LeaveDutyCmd\bin\Release\LeaveDutyCmd
+  RELEASE_DIR: LeaveDutyCmdPlugin\bin\Release\LeaveDutyCmdPlugin
 
 jobs:
   build:

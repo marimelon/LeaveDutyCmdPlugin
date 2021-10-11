@@ -1,37 +1,43 @@
-﻿using Dalamud.Game.Command;
-using Dalamud.Game.Internal;
-using Dalamud.Plugin;
-using System;
+﻿using System;
 using System.Runtime.InteropServices;
+using Dalamud.Game;
+using Dalamud.Game.Command;
+using Dalamud.IoC;
+using Dalamud.Logging;
+using Dalamud.Plugin;
 
-namespace LeaveDutyCmd
+namespace LeaveDutyCmdPlugin
 {
-    public class Plugin : IDalamudPlugin
+    class LeaveDutyCmdPlugin : IDalamudPlugin
     {
         public string Name => "Leave Duty Cmd";
 
         private const string commandName = "/leaved";
 
+        [PluginService]
+        static DalamudPluginInterface Interface { get; set; }
+        [PluginService]
+        static CommandManager CommandManager { get; set; }
+        [PluginService]
+        static Framework Framework { get; set; }
+
         private delegate void LeaveDutyDelegate(char is_timeout);
         private LeaveDutyDelegate leaveDungeon;
 
-        private DalamudPluginInterface pi;
-        private AddressResolver resolver;
+        private readonly AddressResolver AddressResolver;
 
         private bool requesting = false;
 
-        public void Initialize(DalamudPluginInterface pluginInterface)
+        public LeaveDutyCmdPlugin()
         {
-            this.pi = pluginInterface;
+            AddressResolver = new AddressResolver();
+            AddressResolver.Setup();
 
-            this.resolver = new AddressResolver();
-            this.resolver.Setup(this.pi.TargetModuleScanner);
+            this.leaveDungeon = Marshal.GetDelegateForFunctionPointer<LeaveDutyDelegate>(this.AddressResolver.LeaveDuty);
 
-            this.leaveDungeon = Marshal.GetDelegateForFunctionPointer<LeaveDutyDelegate>(this.resolver.LeaveDuty);
+            Framework.Update += this.OnFrameworkUpdate;
 
-            this.pi.Framework.OnUpdateEvent += this.OnFrameworkUpdate;
-
-            this.pi.CommandManager.AddHandler(commandName, new CommandInfo(OnCommand)
+            CommandManager.AddHandler(commandName, new CommandInfo(OnCommand)
             {
                 HelpMessage = "Immediately leave duty.(Do not display confirmation window)"
             });
@@ -39,12 +45,11 @@ namespace LeaveDutyCmd
 
         public void Dispose()
         {
+            CommandManager.RemoveHandler(commandName);
 
-            this.pi.CommandManager.RemoveHandler(commandName);
+            Framework.Update -= this.OnFrameworkUpdate;
 
-            this.pi.Framework.OnUpdateEvent -= this.OnFrameworkUpdate;
-
-            this.pi.Dispose();
+            Interface.Dispose();
         }
 
         private void OnCommand(string command, string args)

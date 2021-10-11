@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
-VisualStudioVersion = 16.0.30114.105
+VisualStudioVersion = 16.0.31702.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeaveDutyCmd", "LeaveDutyCmd\LeaveDutyCmd.csproj", "{AA3A3CD1-37D5-436B-A3C2-ED32DBAC7AB8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeaveDutyCmdPlugin", "LeaveDutyCmdPlugin\LeaveDutyCmdPlugin.csproj", "{DDBA06A4-2465-411B-93A3-3DF51A689FBF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{AA3A3CD1-37D5-436B-A3C2-ED32DBAC7AB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AA3A3CD1-37D5-436B-A3C2-ED32DBAC7AB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AA3A3CD1-37D5-436B-A3C2-ED32DBAC7AB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AA3A3CD1-37D5-436B-A3C2-ED32DBAC7AB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDBA06A4-2465-411B-93A3-3DF51A689FBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDBA06A4-2465-411B-93A3-3DF51A689FBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDBA06A4-2465-411B-93A3-3DF51A689FBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDBA06A4-2465-411B-93A3-3DF51A689FBF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {46C83412-0B6B-4E8E-8DA1-A52C3CAD4CCF}
+		SolutionGuid = {898C65AA-175A-403C-B611-BC2B79033D81}
 	EndGlobalSection
 EndGlobal
